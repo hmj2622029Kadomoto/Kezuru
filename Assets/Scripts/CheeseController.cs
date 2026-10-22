@@ -3,18 +3,19 @@ using UnityEngine.InputSystem;
 
 public class CheeseController : MonoBehaviour
 {
-	[SerializeField] GameObject grater;
-	private void Update()
+	[SerializeField] Transform Grater;
+	[SerializeField] float rotateSpeed = 90f;
+	[SerializeField] float cheeseX = 1f;
+	[SerializeField] float cheeseY = 1f;
+
+	[SerializeField] float distance = 0.1f;
+	float angle;
+	void Update()
 	{
-		if(Mouse.current.leftButton.isPressed)
-		{
-			Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.value);
-			RaycastHit hit;
-			if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-			{
-				float y = Mathf.RoundToInt(hit.point .y);
-				transform.position = new Vector3(0, y, 0);
-			}
-		}
+		if (Grater == null)
+			return;
+		angle += rotateSpeed * Time.deltaTime;
+		Vector3 offset = new Vector3(cheeseX, Mathf.Cos(angle * Mathf.Deg2Rad) - cheeseY, 0f) * distance;
+		transform.position = Grater.position + offset;
 	}
 }
