@@ -12,9 +12,13 @@ public class CheeseController : MonoBehaviour
 	float angle;
 	void Update()
 	{
-		if (Grater == null)
-			return;
-		angle += rotateSpeed * Time.deltaTime;
+		// 左クリックを長押ししながらマウスを動かしたとき処理を実行する
+		if (Mouse.current.leftButton.isPressed && Mouse.current.delta.magnitude > 0)
+		{
+			if (Grater == null)
+				return;
+			angle += rotateSpeed * Time.deltaTime;
+		}
 		Vector3 offset = new Vector3(cheeseX, Mathf.Cos(angle * Mathf.Deg2Rad) - cheeseY, 0f) * distance;
 		transform.position = Grater.position + offset;
 	}

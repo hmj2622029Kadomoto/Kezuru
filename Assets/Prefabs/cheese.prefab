@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2141027526095270136}
   - component: {fileID: 3135713708964905063}
   - component: {fileID: 2263050258706460043}
-  - component: {fileID: -7395756951565639604}
   - component: {fileID: 3441409205230694682}
+  - component: {fileID: 4069658175242982858}
   m_Layer: 0
   m_Name: cheese
   m_TagString: Untagged
@@ -30,9 +30,9 @@ Transform:
   m_GameObject: {fileID: 5077460792407835541}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.379, y: 1.1354, z: 0.89489}
-  m_LocalScale: {x: 0.05, y: 0.001, z: 0.01}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -120,8 +120,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!136 &-7395756951565639604
-CapsuleCollider:
+--- !u!114 &3441409205230694682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5077460792407835541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a21d28880869b5049ba9e0993f623000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CheesePrefabController
+  correctScore: 10
+  wrongScore: -10
+--- !u!65 &4069658175242982858
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,20 +152,6 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 0
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3441409205230694682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5077460792407835541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a21d28880869b5049ba9e0993f623000, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CheesePrefabController
