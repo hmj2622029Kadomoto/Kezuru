@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using static Unity.Burst.Intrinsics.X86;
 
 public class SEController : MonoBehaviour
 {

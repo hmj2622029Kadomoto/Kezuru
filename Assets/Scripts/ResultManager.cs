@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ResultManager : MonoBehaviour
 {
 	[SerializeField] TextMeshProUGUI scoreText;
-	[SerializeField] AudioClip SE;
-	[SerializeField] AudioClip SE2;
+	[SerializeField] AudioClip BGM;
+	[SerializeField] AudioClip BGM2;
 	AudioSource audioSource;
 
 	private void Start()
@@ -18,13 +18,13 @@ public class ResultManager : MonoBehaviour
 		{
 			int score = scoreManager.GetScore();
 			scoreText.text = "Score: " + score;
-			if(score >0)
+			if (score > 0)// スコアが０より大きいとき、達成感のあるBGMを流す
 			{
-				audioSource.PlayOneShot(SE);
+				audioSource.PlayOneShot(BGM);
 			}
-			else
+			else // ０以下のとき、悲壮感のあるBGMを流す
 			{
-				audioSource.PlayOneShot(SE2);
+				audioSource.PlayOneShot(BGM2);
 			}
 		}
 
@@ -35,6 +35,7 @@ public class ResultManager : MonoBehaviour
 	{
 		if (Keyboard.current.spaceKey.wasPressedThisFrame)
 		{
+			// スペースキーが押されたときTitleSceneに遷移する
 			SceneManager.LoadScene("TitleScene");
 		}
 	}

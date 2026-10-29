@@ -17,7 +17,7 @@ public class CheesePrefabController : MonoBehaviour
 	{
 		if (hit) return;
 
-		if (collision.gameObject.CompareTag("Pizza"))
+		if (collision.gameObject.CompareTag("Pizza")) // Tag‚ÉPizza‚ª‚Â‚­‚à‚Ì‚ÉG‚ê‚½‚Æ‚«ˆ—‚ğÀs‚·‚é
 		{
 			if (scoreManager != null)
 			{
@@ -43,12 +43,13 @@ public class CheesePrefabController : MonoBehaviour
 
 			if (rbody != null)
 			{
+				// “®ì‚ğ’â~‚µA•¨—‰‰Z‚à‚È‚­‚·
 				rbody.linearVelocity = Vector3.zero;
 				rbody.angularVelocity = Vector3.zero;
 				rbody.isKinematic = true;
 			}
 		}
-		else if(collision.gameObject.CompareTag("Table"))
+		else if(collision.gameObject.CompareTag("Table")) // Tag‚ÉTable‚ª‚Â‚­‚à‚Ì‚ÉG‚ê‚½‚Æ‚«ˆ—‚ğÀs‚·‚é
 		{
 			if (scoreManager != null)
 			{
@@ -70,10 +71,12 @@ public class CheesePrefabController : MonoBehaviour
 
 			if (rbody != null)
 			{
+				// “®ì‚ğ’â~‚µA•¨—‰‰Z‚à‚È‚­‚·
 				rbody.linearVelocity = Vector3.zero;
 				rbody.angularVelocity = Vector3.zero;
 				rbody.isKinematic = true;
 			}
 		}
+		// else‚ª‚È‚¢——R‚ÍTag‚Ì‚Â‚¢‚Ä‚¢‚È‚¢‚à‚Ì‚ÉG‚ê‚½‚Æ‚«‚És‚¤ˆ—‚ª‚È‚¢‚©‚ç
 	}
 }

@@ -8,6 +8,7 @@ public class Scene : MonoBehaviour
 	{
 		if (Keyboard.current.spaceKey.wasPressedThisFrame)
 		{
+			// スペースキーが押されたらGameSceneに遷移する
 			SceneManager.LoadScene("GameScene");
 		}
 	}

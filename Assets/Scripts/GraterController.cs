@@ -1,6 +1,4 @@
-using NUnit.Framework;
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -17,9 +15,6 @@ public class GraterController : MonoBehaviour
 	[SerializeField] GameObject cheesePrefab;
 	[SerializeField] float interval = 3f;
 
-	[SerializeField] Vector3 areaCenter;
-	[SerializeField] Vector3 areaSize = new Vector3(20f, 0f, 20f);
-
 	AudioSource audioSource;
 
 	void Start()
@@ -33,6 +28,7 @@ public class GraterController : MonoBehaviour
 		if (Pizza == null)
 			return;
 		angle += rotateSpeed * Time.deltaTime;
+		// ピザを中心に複雑な動きをする
 		Vector3 offset = new Vector3(Mathf.Cos(angle * Mathf.Deg2Rad), 4f, Mathf.Sin((angle * 160f / 180f) * Mathf.Deg2Rad)) * distance;
 		transform.position = Pizza.position + offset;
 	}
@@ -40,21 +36,24 @@ public class GraterController : MonoBehaviour
 	{
 		while (true)
 		{
+			// 左クリックを長押ししながらマウスを動かしたとき処理を実行する
 			if (Mouse.current.leftButton.isPressed && Mouse.current.delta.magnitude > 0)
 			{
 				PlaySound();
+				// cheesePrefabを生成する
 				Instantiate(cheesePrefab, graterPoint.position, transform.rotation);
 			}
 			yield return new WaitForSeconds(interval);
 		}
 	}
+
+	// 削る音が鳴っている間に新しく音が鳴らないようにするための処理
 	public void PlaySound()
 	{
 		if(audioSource.isPlaying)
 		{
 			return;
 		}
-
 		audioSource.Play();
 	}
 }

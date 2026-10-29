@@ -19,6 +19,7 @@ public class CheeseController : MonoBehaviour
 				return;
 			angle += rotateSpeed * Time.deltaTime;
 		}
+		// Grater‚ğ‹N“_‚Æ‚µ‚Äã‰º‰^“®‚ğ‚·‚é
 		Vector3 offset = new Vector3(cheeseX, Mathf.Cos(angle * Mathf.Deg2Rad) - cheeseY, 0f) * distance;
 		transform.position = Grater.position + offset;
 	}
