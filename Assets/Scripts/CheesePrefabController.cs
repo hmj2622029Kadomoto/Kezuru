@@ -4,6 +4,8 @@ public class CheesePrefabController : MonoBehaviour
 {
 	[SerializeField] int correctScore = 10;
 	[SerializeField] int wrongScore = -5;
+	[SerializeField] ParticleSystem correctParticle;
+	[SerializeField] ParticleSystem wrongParticle;
 	bool hit = false;
 	ScoreManager scoreManager;
 
@@ -31,6 +33,8 @@ public class CheesePrefabController : MonoBehaviour
 
 			Collider col = GetComponent<Collider>();
 
+			correctParticle.Play();
+			wrongParticle.Stop();
 
 			if (col != null)
 			{
@@ -55,6 +59,8 @@ public class CheesePrefabController : MonoBehaviour
 			Rigidbody rbody = GetComponent<Rigidbody>();
 
 			Collider col = GetComponent<Collider>();
+
+			wrongParticle.Play();
 
 
 			if (col != null)
